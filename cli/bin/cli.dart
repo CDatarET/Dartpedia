@@ -1,9 +1,13 @@
 import 'dart:io';
+import 'package:command_runner/command_runner.dart';
 import 'package:http/http.dart' as http;
 const version = '0.0.1';
 
-void main(List<String> args){
+void main(List<String> args) async{
     print("Hello World");
+
+    var runner = CommandRunner();
+    await runner.run(args);
 
     if(args.isEmpty){
         print("Hello Dart");
@@ -22,7 +26,7 @@ void main(List<String> args){
 }
 
 void search(List<String>? args) async{
-    print("Seraching for $args");
+    print("Searching for $args");
     final String article;
 
     if(args == null || args.isEmpty){
